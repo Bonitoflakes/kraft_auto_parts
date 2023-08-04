@@ -9,8 +9,6 @@ import {
 
 export const Router = express.Router();
 
-Router.get("/customers", getAllCustomers);
-Router.get("/customer/:customerCode", getCustomerByCode);
-Router.post("/customer", createCustomer);
-Router.patch("/customer/:customerCode", updateCustomer);
-Router.delete("/customer/:customerCode", deleteCustomer);
+Router.get("/all", getAllCustomers);
+Router.post("/new", createCustomer);
+Router.route("/:customerCode").get(getCustomerByCode).patch(updateCustomer).delete(deleteCustomer);
